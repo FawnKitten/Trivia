@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Trivia</string>
+    <string name="question_2">Pergunta 2</string>
+    <string name="question_1">Pergunta 1</string>
+    <string name="question_3">Pegrgunta 3</string>
+    <string name="question_4">Pergunta 4</string>
+    <string name="score">"Pontos: "</string>
+    <string name="question_statement">Frase da Questão</string>
+</resources>
