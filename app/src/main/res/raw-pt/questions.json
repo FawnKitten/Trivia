@@ -1,0 +1,23 @@
+
+[
+  {
+    "question": "olá",
+    "answers": [
+      "mundo",
+      "terra",
+      "marte",
+      "lua"
+    ],
+    "correct": "mundo"
+  },
+  {
+    "question": "teste",
+    "answers": [
+      "um",
+      "dois",
+      "tres",
+      "quatro"
+    ],
+    "correct": "um"
+  }
+]

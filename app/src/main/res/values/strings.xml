@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Trivia</string>
-    <string name="question_2">Question 2</string>
     <string name="question_1">Question 1</string>
     <string name="question_3">Question 3</string>
     <string name="question_4">Question 4</string>
+    <string name="question_statement">question statement</string>
+    <string name="score">Score: </string>
+    <string name="question_2">Question 2</string>
 </resources>
