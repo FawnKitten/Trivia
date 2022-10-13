@@ -7,4 +7,6 @@
     <string name="question_4">Pergunta 4</string>
     <string name="score">"Pontos: "</string>
     <string name="question_statement">Frase da Questão</string>
+    <string name="final_score">"Pontuação Final: "</string>
+    <string name="restart">Recomeçar</string>
 </resources>

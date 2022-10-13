@@ -1,23 +1,43 @@
 
 [
   {
-    "question": "olá",
+    "question": "Quantos albums de estudio os Beatles lançaram",
     "answers": [
-      "mundo",
-      "terra",
-      "marte",
-      "lua"
+      "des",
+      "onze",
+      "douse",
+      "trese"
     ],
-    "correct": "mundo"
+    "correct": "douse"
   },
   {
-    "question": "teste",
+    "question": "Qual NÃO é um membro dos Betles",
     "answers": [
-      "um",
-      "dois",
-      "tres",
-      "quatro"
+      "Karl Marx",
+      "Ken Thompson",
+      "John Carmac",
+      "Todos Mencionados"
     ],
-    "correct": "um"
+    "correct": "Todos Mencionados"
+  },
+  {
+    "question": "A música Yesterday foi escrita e cantada por",
+    "answers": [
+      "Paul McCartney",
+      "John Lennon",
+      "Ringo Starr",
+      "George Harrison"
+    ],
+    "correct": "Paul McCartney"
+  },
+  {
+  "question": "Qual desses foi o produtor dos Beatles",
+  "answers": [
+    "George Martin",
+    "Martin Luther King",
+    "Dr. Dre",
+    "John Locke"
+  ],
+  "correct": "George Martin"
   }
 ]

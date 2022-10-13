@@ -15,7 +15,7 @@ class Quiz(): Iterable<Question> {
         this.questions = questions
     }
 
-    fun isAtEnd(): Boolean {
+    fun hasMoreQuestions(): Boolean {
         return currentQuestion < questions.size
     }
 
@@ -37,10 +37,9 @@ class Quiz(): Iterable<Question> {
 
     fun choseAnswer(chosen: String) {
         Log.d(TAG, "choseAnswer: chosen=$chosen correct=${questions[currentQuestion].correct}")
-        if (chosen == questions[currentQuestion].correct) {
+        if (chosen == questions[currentQuestion].correct)
             score++
-            currentQuestion++
-        }
+        currentQuestion++
     }
 
 

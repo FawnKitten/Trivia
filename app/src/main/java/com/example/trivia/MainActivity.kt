@@ -1,24 +1,37 @@
 package com.example.trivia
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.constraintlayout.widget.Group
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        val TAG = "MainActivity"
+        const val TAG = "MainActivity"
     }
 
+    // main question interface
+    private lateinit var questionGroup: Group
     private lateinit var question1button: Button
     private lateinit var question2button: Button
     private lateinit var question3button: Button
     private lateinit var question4button: Button
-    private lateinit var statementText: TextView
+    private lateinit var statementView: TextView
+    private lateinit var scoreView: TextView
+
+    // final score
+    private lateinit var resultGroup: Group
+    private lateinit var finalScoreView: TextView
+    private lateinit var restartButton: Button
+
     private var quiz = Quiz()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,14 +46,22 @@ class MainActivity : AppCompatActivity() {
         setUIText()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setUIText() {
-        if (quiz.isAtEnd()) {
-            var question = quiz.getCurrentQuestion()
+        if (quiz.hasMoreQuestions()) {
+            val question = quiz.getCurrentQuestion()
             question1button.text = question.answers[0]
             question2button.text = question.answers[1]
             question3button.text = question.answers[2]
             question4button.text = question.answers[3]
-            statementText.text = question.question
+            statementView.text = question.question
+            val scoreText = getString(R.string.score)
+            scoreView.text = "$scoreText ${quiz.score}"
+        } else {
+            questionGroup.visibility = View.GONE
+            resultGroup.visibility = View.VISIBLE
+            val finalScoreText = getString(R.string.final_score)
+            finalScoreView.text = "$finalScoreText ${quiz.score}"
         }
     }
 
@@ -59,6 +80,13 @@ class MainActivity : AppCompatActivity() {
         }
         question4button.setOnClickListener {
             quiz.choseAnswer(question4button.text.toString())
+            setUIText()
+        }
+        restartButton.setOnClickListener {
+            questionGroup.visibility = View.VISIBLE
+            resultGroup.visibility = View.GONE
+            quiz.currentQuestion = 0
+            quiz.score = 0
             setUIText()
         }
     }
@@ -95,13 +123,20 @@ class MainActivity : AppCompatActivity() {
         val questions = gson.fromJson<List<Question>>(jsonString, type)
         Log.d(TAG, "loadQuestions: $questions")
         return questions
-       }
+    }
 
     private fun wireWigets() {
+        // main questions
+        questionGroup = findViewById(R.id.group_main_questions)
         question1button = findViewById(R.id.button_main_question1)
         question2button = findViewById(R.id.button_main_question2)
         question3button = findViewById(R.id.button_main_question3)
         question4button = findViewById(R.id.button_main_question4)
-        statementText = findViewById(R.id.textView_main_statement)
+        statementView = findViewById(R.id.textView_main_statement)
+        scoreView = findViewById(R.id.textView_main_score)
+        // end result
+        resultGroup = findViewById(R.id.group_main_result)
+        finalScoreView = findViewById(R.id.textView_main_finalScore)
+        restartButton = findViewById(R.id.button_main_Restart)
     }
 }

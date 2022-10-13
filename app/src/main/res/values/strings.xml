@@ -6,4 +6,6 @@
     <string name="question_statement">question statement</string>
     <string name="score">Score: </string>
     <string name="question_2">Question 2</string>
+    <string name="final_score">Final Score:</string>
+    <string name="restart">Restart</string>
 </resources>
