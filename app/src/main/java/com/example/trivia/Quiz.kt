@@ -19,11 +19,11 @@ class Quiz(): Iterable<Question> {
         return currentQuestion < questions.size
     }
 
-    fun nextQuestion(): Question {
-        val question = questions[currentQuestion]
-        currentQuestion++
-        return question
-    }
+//    fun nextQuestion(): Question {
+//        val question = questions[currentQuestion]
+//        currentQuestion++
+//        return question
+//    }
 
 //    fun getNextQuestion(): Question? {
 //        return questions.getOrNull(currentQuestion).also {
@@ -36,6 +36,7 @@ class Quiz(): Iterable<Question> {
     }
 
     fun choseAnswer(chosen: String) {
+        Log.d(TAG, "choseAnswer: currentQuestion=$currentQuestion")
         Log.d(TAG, "choseAnswer: chosen=$chosen correct=${questions[currentQuestion].correct}")
         if (chosen == questions[currentQuestion].correct)
             score++

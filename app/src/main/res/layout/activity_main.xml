@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D3EEB9"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.Group
@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="visible"
-        app:constraint_referenced_ids=",button_main_question3,button_main_question4,button_main_question1,button_main_question2,textView_main_statement,textView_main_score" />
+        app:constraint_referenced_ids=",button_main_question3,button_main_question4,button_main_question1,button_main_question2,textView_main_statement,textView_main_score"
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/textView_main_score"
@@ -32,6 +33,9 @@
         android:id="@+id/button_main_question2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:rotation="3"
+        android:rotationX="17"
+        android:rotationY="13"
         android:text="@string/question_2"
         app:layout_constraintBottom_toTopOf="@+id/button_main_question4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,6 +48,10 @@
         android:id="@+id/button_main_question1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:rotation="-3"
+        android:rotationX="17"
+        android:rotationY="-13"
+        android:shadowColor="#00FFFFFF"
         android:text="@string/question_1"
         app:layout_constraintBottom_toTopOf="@+id/button_main_question3"
         app:layout_constraintEnd_toStartOf="@+id/button_main_question2"
@@ -56,6 +64,9 @@
         android:id="@+id/button_main_question3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:rotation="-3"
+        android:rotationX="-17"
+        android:rotationY="-13"
         android:text="@string/question_3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button_main_question4"
@@ -67,7 +78,13 @@
         android:id="@+id/textView_main_statement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:rotation="-13"
+        android:rotationX="23"
+        android:rotationY="23"
         android:text="@string/question_statement"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +95,9 @@
         android:id="@+id/button_main_question4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:rotation="3"
+        android:rotationX="-17"
+        android:rotationY="13"
         android:text="@string/question_4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,14 +109,20 @@
         android:id="@+id/group_main_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:constraint_referenced_ids="textView_main_finalScore,button_main_Restart" />
+        android:visibility="gone"
+        app:constraint_referenced_ids="textView_main_finalScore,button_main_Restart"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/textView_main_finalScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:scaleX="1"
+        android:scaleY="1"
         android:text="@string/final_score"
+        android:textColor="#000000"
+        android:textSize="38sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,6 +134,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/restart"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

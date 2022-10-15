@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.constraintlayout.widget.Group
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -40,20 +39,28 @@ class MainActivity : AppCompatActivity() {
 
         // testQuiz()
 
-        quiz.loadQuestions(loadQuestions())
-        wireWigets()
+        initializeQuiz()
+        wireWidgets()
         setButtonListeners()
         setUIText()
+    }
+
+    private fun initializeQuiz() {
+        quiz.currentQuestion = 0
+        quiz.score = 0
+        val questions = loadQuestions().shuffled()
+        quiz.loadQuestions(questions)
     }
 
     @SuppressLint("SetTextI18n")
     private fun setUIText() {
         if (quiz.hasMoreQuestions()) {
             val question = quiz.getCurrentQuestion()
-            question1button.text = question.answers[0]
-            question2button.text = question.answers[1]
-            question3button.text = question.answers[2]
-            question4button.text = question.answers[3]
+            val answers = question.answers.shuffled()
+            question1button.text = answers[0]
+            question2button.text = answers[1]
+            question3button.text = answers[2]
+            question4button.text = answers[3]
             statementView.text = question.question
             val scoreText = getString(R.string.score)
             scoreView.text = "$scoreText ${quiz.score}"
@@ -85,8 +92,7 @@ class MainActivity : AppCompatActivity() {
         restartButton.setOnClickListener {
             questionGroup.visibility = View.VISIBLE
             resultGroup.visibility = View.GONE
-            quiz.currentQuestion = 0
-            quiz.score = 0
+            initializeQuiz()
             setUIText()
         }
     }
@@ -125,7 +131,7 @@ class MainActivity : AppCompatActivity() {
         return questions
     }
 
-    private fun wireWigets() {
+    private fun wireWidgets() {
         // main questions
         questionGroup = findViewById(R.id.group_main_questions)
         question1button = findViewById(R.id.button_main_question1)
